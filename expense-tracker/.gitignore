@@ -1,0 +1,32 @@
+# ===========================
+# Backend — sensitive files
+# ===========================
+backend/src/main/resources/application-local.properties
+backend/target/
+
+# ===========================
+# Frontend
+# ===========================
+frontend/node_modules/
+frontend/build/
+frontend/.env
+frontend/.env.local
+
+# ===========================
+# IDE files
+# ===========================
+.idea/
+*.iml
+.vscode/
+
+# ===========================
+# OS files
+# ===========================
+.DS_Store
+Thumbs.db
+
+# ===========================
+# Logs
+# ===========================
+*.log
+logs/

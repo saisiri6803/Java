@@ -1,0 +1,46 @@
+.wrapper {
+  padding: 1rem 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.key {
+  font-size: 13px;
+  color: var(--ink3);
+}
+
+.val {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--ink);
+}
+
+.pos { color: var(--green); }
+.neg { color: var(--accent); }
+
+.progressBar {
+  height: 6px;
+  background: var(--surface2);
+  border-radius: 3px;
+  overflow: hidden;
+  margin-top: -4px;
+}
+
+.progressFill {
+  height: 100%;
+  border-radius: 3px;
+  transition: width 0.5s ease;
+}
+
+.divider {
+  height: 1px;
+  background: var(--border2);
+  margin: 4px 0;
+}

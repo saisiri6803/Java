@@ -1,0 +1,63 @@
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-bottom: 1.75rem;
+}
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border2);
+  border-radius: var(--radius);
+  padding: 1.25rem;
+  border-left: 3px solid transparent;
+  transition: box-shadow 0.2s;
+}
+
+.card:hover {
+  box-shadow: var(--shadow);
+}
+
+.income  { border-left-color: var(--green); }
+.expense { border-left-color: var(--accent); }
+.balance { border-left-color: var(--amber); }
+
+.label {
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--ink3);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.amount {
+  font-family: 'DM Serif Display', serif;
+  font-size: 1.75rem;
+  line-height: 1;
+}
+
+.pos { color: var(--green); }
+.neg { color: var(--accent); }
+
+.sub {
+  font-size: 12px;
+  color: var(--ink3);
+  margin-top: 6px;
+}
+
+.skeleton {
+  height: 110px;
+  background: linear-gradient(90deg, var(--surface2) 25%, var(--surface) 50%, var(--surface2) 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.4s infinite;
+}
+
+@keyframes shimmer {
+  0%   { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+@media (max-width: 640px) {
+  .grid { grid-template-columns: 1fr; }
+}

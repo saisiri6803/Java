@@ -1,0 +1,66 @@
+.wrapper {
+  padding: 0 1.25rem 1.25rem;
+}
+
+.chartWrap {
+  position: relative;
+  width: 100%;
+  height: 200px;
+  margin-bottom: 1rem;
+}
+
+.breakdown {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.catRow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 3px;
+  flex-shrink: 0;
+}
+
+.catName {
+  flex: 1;
+  color: var(--ink2);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.barWrap {
+  flex: 2;
+  height: 4px;
+  background: var(--surface2);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.bar {
+  height: 100%;
+  border-radius: 2px;
+  transition: width 0.4s ease;
+}
+
+.pct {
+  font-size: 12px;
+  color: var(--ink3);
+  min-width: 30px;
+  text-align: right;
+}
+
+.empty {
+  padding: 2rem 1.25rem;
+  text-align: center;
+  color: var(--ink3);
+  font-size: 14px;
+}
