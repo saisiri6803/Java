@@ -47,7 +47,7 @@ expense-tracker/
 
 ---
 
-## ✅ Prerequisites
+##  Prerequisites
 
 Make sure you have installed:
 
@@ -69,7 +69,7 @@ mysql --version
 
 ---
 
-## 🛢 Step 1 — Set Up MySQL Database
+##  Step 1 — Set Up MySQL Database
 
 Open MySQL and run:
 
@@ -91,7 +91,7 @@ Spring Boot will **auto-create the tables** on first run (via `ddl-auto=update`)
 
 ---
 
-## 🚀 Step 2 — Run the Backend (Spring Boot)
+##  Step 2 — Run the Backend (Spring Boot)
 
 ```bash
 # Navigate to backend folder
@@ -129,7 +129,7 @@ Expected response:
 
 ---
 
-## 🌐 Step 3 — Run the Frontend (React)
+##  Step 3 — Run the Frontend (React)
 
 Open a **new terminal window**:
 
@@ -150,7 +150,7 @@ The React app proxies `/api` requests to `http://localhost:8080` (configured in 
 
 ---
 
-## 🔌 REST API Reference
+##  REST API Reference
 
 Base URL: `http://localhost:8080/api`
 
@@ -187,7 +187,7 @@ curl http://localhost:8080/api/transactions/summary
 
 ---
 
-## 🧪 Running Tests
+##  Running Tests
 
 ```bash
 cd backend
@@ -198,7 +198,7 @@ Tests use an in-memory H2 database — no MySQL required for tests.
 
 ---
 
-## 🏗 Tech Stack
+##  Tech Stack
 
 ### Backend
 | Technology | Purpose |
@@ -221,7 +221,7 @@ Tests use an in-memory H2 database — no MySQL required for tests.
 
 ---
 
-## ⚙️ Configuration Reference
+##  Configuration Reference
 
 `backend/src/main/resources/application.properties`:
 
@@ -240,7 +240,7 @@ spring.jpa.hibernate.ddl-auto=update
 
 ---
 
-## 🐛 Common Issues
+##  Common Issues
 
 | Problem | Fix |
 |---------|-----|
@@ -252,7 +252,7 @@ spring.jpa.hibernate.ddl-auto=update
 
 ---
 
-## 📌 Resume Points
+##  Resume Points
 
 When describing this project on your resume, highlight:
 
