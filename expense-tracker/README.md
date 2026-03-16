@@ -4,7 +4,9 @@ A full-stack Expense Tracker app built with **Spring Boot (Java)** + **React**.
 Track income and expenses, visualize spending by category, and manage transactions via a clean REST API.
 
 ---
-
+## 📸 Screenshot
+<!-- Add a screenshot after deploying -->
+![Expense-Tracker](./frontend/public/img.png)
 ## 🗂 Project Structure
 
 ```
@@ -67,7 +69,7 @@ npm -version
 mysql --version
 ```
 
----
+
 
 ## 🛢 Step 1 — Set Up MySQL Database
 
