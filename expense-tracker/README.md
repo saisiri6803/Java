@@ -252,18 +252,3 @@ spring.jpa.hibernate.ddl-auto=update
 | CORS errors in browser | Ensure backend is running on port 8080 and frontend on 3000 |
 | Tables not created | Set `spring.jpa.hibernate.ddl-auto=create` once, then change back to `update` |
 
----
-
-##  Resume Points
-
-When describing this project on your resume, highlight:
-
-- **Built a full-stack expense tracking application** using Spring Boot REST API and React
-- **Designed RESTful endpoints** with proper HTTP methods, status codes, and error handling
-- **Used Spring Data JPA** with custom JPQL queries for aggregations and filtering
-- **Implemented global exception handling** with `@RestControllerAdvice`
-- **Applied separation of concerns** via Controller → Service → Repository layers
-- **Used DTOs** to decouple API contracts from JPA entities
-- **Wrote unit tests** with JUnit 5 and Mockito achieving service layer coverage
-- **Integrated Chart.js** for real-time spending visualizations
-- **Configured CORS** for cross-origin frontend-backend communication
