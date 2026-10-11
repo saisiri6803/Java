@@ -10,6 +10,7 @@ import org.springframework.stereotype.Repository;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public interface TransactionRepository extends JpaRepository<Transaction, Long> {
@@ -56,4 +57,54 @@ public interface TransactionRepository extends JpaRepository<Transaction, Long> 
 
     // Search by description
     List<Transaction> findByDescriptionContainingIgnoreCaseOrderByDateDesc(String keyword);
+
+    List<Transaction> findByUserIdOrderByDateDesc(Long userId);
+
+    Optional<Transaction> findByIdAndUserId(Long id, Long userId);
+
+    List<Transaction> findByUserIdAndTypeOrderByDateDesc(
+            Long userId,
+            TransactionType type
+    );
+
+    List<Transaction> findByUserIdAndDateBetweenOrderByDateDesc(
+            Long userId,
+            LocalDate startDate,
+            LocalDate endDate
+    );
+
+    List<Transaction>
+    findByUserIdAndTypeAndDateBetweenOrderByDateDesc(
+            Long userId,
+            TransactionType type,
+            LocalDate startDate,
+            LocalDate endDate
+    );
+
+    List<Transaction>
+    findByUserIdAndDescriptionContainingIgnoreCaseOrderByDateDesc(
+            Long userId,
+            String keyword
+    );
+
+    @Query("""
+    SELECT COALESCE(SUM(t.amount), 0)
+    FROM Transaction t
+    WHERE t.user.id = :userId AND t.type = :type
+    """)
+    BigDecimal sumByUserIdAndType(
+            @Param("userId") Long userId,
+            @Param("type") TransactionType type);
+
+    @Query("""
+    SELECT t.category, SUM(t.amount)
+    FROM Transaction t
+    WHERE t.user.id = :userId AND t.type = :type
+    GROUP BY t.category
+    """)
+    List<Object[]> sumByUserIdAndTypeGroupedByCategory(
+            @Param("userId") Long userId,
+            @Param("type") TransactionType type);
+
+    long countByUserIdAndType(Long userId, TransactionType type);
 }
