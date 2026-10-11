@@ -59,10 +59,6 @@ function Dashboard({
   const { summary, loading: summaryLoading } = useSummary(refresh);
   const { transactions, loading: txLoading } = useTransactions({}, refresh);
 
-  const now = new Date();
-  const monthName = now.toLocaleString('en-IN', { month: 'long' });
-  const year = now.getFullYear();
-
   return (
     <div className={styles.app}>
       
@@ -75,15 +71,12 @@ function Dashboard({
   </div>
 
   <div>
-    <span className={styles.monthBadge}>
-      {monthName} {year}
-    </span>
 
     <UserProfile
-      name={user.name}
-      email={user.email}
-      onLogout={onLogout}
-    />
+  name={user.name}
+  email={user.email}
+  onLogout={onLogout}
+/>
   </div>
 </header>
 
