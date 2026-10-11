@@ -1,0 +1,150 @@
+
+.dialog-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: rgba(22, 32, 27, 0.45);
+  backdrop-filter: blur(4px);
+  animation: dialog-fade-in 0.18s ease-out;
+}
+
+.confirm-dialog {
+  width: 100%;
+  max-width: 400px;
+  padding: 28px;
+  background: #ffffff;
+  border: 1px solid #e7e9e4;
+  border-radius: 18px;
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.18);
+  text-align: center;
+  animation: dialog-slide-in 0.2s ease-out;
+}
+
+.dialog-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  margin: 0 auto 18px;
+  color: #176b5b;
+  background: #eaf5f0;
+  border-radius: 50%;
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.dialog-icon-danger {
+  color: #b42318;
+  background: #fff0ee;
+}
+
+.confirm-dialog h2 {
+  margin: 0 0 10px;
+  color: #202923;
+  font-size: 21px;
+  font-weight: 700;
+}
+
+.confirm-dialog p {
+  margin: 0;
+  color: #69716b;
+  font-size: 14px;
+  line-height: 1.6;
+  overflow-wrap: anywhere;
+}
+
+.dialog-actions {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 26px;
+}
+
+.dialog-actions button {
+  flex: 1;
+  min-height: 44px;
+  padding: 10px 16px;
+  border: 1px solid transparent;
+  border-radius: 9px;
+  font: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s, border-color 0.2s;
+}
+
+.dialog-cancel-button {
+  color: #374139;
+  background: #ffffff;
+  border-color: #dce1db !important;
+}
+
+.dialog-cancel-button:hover {
+  background: #f5f6f3;
+}
+
+.dialog-confirm-button {
+  color: #ffffff;
+  background: #176b5b;
+}
+
+.dialog-confirm-button:hover {
+  background: #115647;
+}
+
+.dialog-danger-button {
+  background: #b42318;
+}
+
+.dialog-danger-button:hover {
+  background: #921d14;
+}
+
+.dialog-actions button:focus-visible {
+  outline: 3px solid rgba(35, 133, 116, 0.3);
+  outline-offset: 3px;
+}
+
+@keyframes dialog-fade-in {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes dialog-slide-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px) scale(0.98);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@media (max-width: 420px) {
+  .confirm-dialog {
+    padding: 24px 20px;
+  }
+
+  .dialog-actions {
+    gap: 8px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dialog-backdrop,
+  .confirm-dialog {
+    animation: none;
+  }
+}

@@ -202,3 +202,147 @@
   50%  { opacity: 0.5; }
   100% { opacity: 1; }
 }
+
+.dateFilters {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.dateInput {
+  width: 140px;
+  min-width: 0;
+  padding: 6px 8px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--bg);
+  color: var(--ink);
+  font-family: inherit;
+  font-size: 12px;
+  outline: none;
+}
+
+.dateInput:focus {
+  border-color: var(--ink);
+}
+
+@media (max-width: 600px) {
+  .dateFilters {
+    width: 100%;
+  }
+
+  .dateInput {
+    flex: 1;
+    width: auto;
+  }
+}
+
+.clearFilters {
+  padding: 6px 10px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: transparent;
+  color: var(--ink2);
+  font-size: 12px;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+}
+
+.clearFilters:hover:not(:disabled) {
+  background: var(--surface2);
+  color: var(--ink);
+}
+
+.clearFilters:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+.sortSelect {
+  padding: 6px 10px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--bg);
+  color: var(--ink);
+  font-family: inherit;
+  font-size: 12px;
+  cursor: pointer;
+  outline: none;
+}
+
+.sortSelect:focus {
+  border-color: var(--ink);
+}
+
+.pageSizeLabel {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-left: 14px;
+}
+
+.pageSizeSelect {
+  padding: 4px 6px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--bg);
+  color: var(--ink);
+  font: inherit;
+}
+
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  padding: 12px 16px;
+  border-top: 1px solid var(--border2);
+}
+
+.pageButton {
+  padding: 7px 12px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--bg);
+  color: var(--ink);
+  font: inherit;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.pageButton:hover:not(:disabled) {
+  background: var(--surface2);
+}
+
+.pageButton:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.pageInfo {
+  color: var(--ink2);
+  font-size: 12px;
+}
+
+
+.edit {
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--ink);
+  border-radius: 6px;
+  padding: 6px 10px;
+  cursor: pointer;
+  font: inherit;
+  font-size: 12px;
+  transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.edit:hover:not(:disabled) {
+  background: var(--surface-hover, #f3f4f6);
+  border-color: var(--border);
+}
+
+.edit:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
