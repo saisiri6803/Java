@@ -30,3 +30,4 @@ Thumbs.db
 # ===========================
 *.log
 logs/
+backend/.env
