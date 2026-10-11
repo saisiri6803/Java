@@ -17,9 +17,9 @@ public class CorsConfig {
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         CorsConfiguration config = new CorsConfiguration();
 
-        // 💡 Allow BOTH your local machine and your live Vercel production website
         config.setAllowedOrigins(Arrays.asList(
                 "https://expense-tracker-gqls5lh8f-sai-sirisha-sabbellas-projects.vercel.app/",
+                "https://expense-tracker-gamma-tan-67.vercel.app/",
                 "http://localhost:3000"));
 
         // Allow all standard REST methods and headers needed for JWT authorization
