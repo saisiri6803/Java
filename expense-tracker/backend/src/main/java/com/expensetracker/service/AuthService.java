@@ -45,25 +45,26 @@ public class AuthService {
 
                 User savedUser = userRepository.save(user);
 
-                UserDetails userDetails = org.springframework.security.core.userdetails.User
-                                .withUsername(savedUser.getEmail())
-                                .password(savedUser.getPassword())
-                                .roles(savedUser.getRole().name())
-                                .build();
-
-                String token = jwtService.generateToken(userDetails);
-
-                return AuthResponseDTO.builder()
-                                .token(token)
-                                .userId(savedUser.getId())
-                                .name(savedUser.getName())
-                                .email(savedUser.getEmail())
-                                .build();
+                return createAuthResponse(savedUser);
         }
 
+        @Transactional // Added transactional support for the lazy seeding mechanism
         public AuthResponseDTO login(LoginRequestDTO request) {
                 String email = request.getEmail().trim().toLowerCase();
 
+                // 💡 STAJ FIX: If it's the tester account and doesn't exist yet, seed it
+                // automatically!
+                if ("tester@example.com".equals(email) && !userRepository.existsByEmail(email)) {
+                        User tester = User.builder()
+                                        .name("Demo Tester")
+                                        .email("tester@example.com")
+                                        .password(passwordEncoder.encode("Tester@123"))
+                                        .role(Role.USER)
+                                        .build();
+                        userRepository.save(tester);
+                }
+
+                // Authenticate credentials against the database records
                 authenticationManager.authenticate(
                                 new UsernamePasswordAuthenticationToken(
                                                 email,
@@ -74,6 +75,11 @@ public class AuthService {
                                                 HttpStatus.UNAUTHORIZED,
                                                 "Invalid email or password"));
 
+                return createAuthResponse(user);
+        }
+
+        // Helper method to keep code DRY (Don't Repeat Yourself)
+        private AuthResponseDTO createAuthResponse(User user) {
                 UserDetails userDetails = org.springframework.security.core.userdetails.User
                                 .withUsername(user.getEmail())
                                 .password(user.getPassword())
