@@ -10,9 +10,11 @@
   justify-content: space-between;
   margin-bottom: 2rem;
   border-bottom: 1px solid var(--border);
-  padding-bottom: 1.25rem;
+  padding: 1.25rem;
   flex-wrap: wrap;
   gap: 12px;
+  background-color:rgba(255, 228, 196, 0.248);
+  border-radius: 15%;
 }
 
 .title {

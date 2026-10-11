@@ -164,3 +164,25 @@
     font-size: 25px;
   }
 }
+
+.tester-login-button {
+  width: 100%;
+  margin-top: 10px;
+  padding: 12px 16px;
+  border: none;
+  background: transparent;
+  color: #0d9488;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.tester-login-button:hover:not(:disabled) {
+  text-decoration: underline;
+}
+
+.tester-login-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}

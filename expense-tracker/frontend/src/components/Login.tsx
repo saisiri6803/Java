@@ -68,6 +68,32 @@ const Login: React.FC<LoginProps> = ({ onLoginSuccess }) => {
       setLoading(false);
     }
   };
+const handleTesterLogin = async () => {
+  setError('');
+  setMessage('');
+  setLoading(true);
+
+  try {
+    const response = await login({
+      email: 'Tester@example.com',
+      password: "Tester@123",
+    });
+
+    if (response.success && response.data?.token) {
+      localStorage.setItem('token', response.data.token);
+      onLoginSuccess(response.data);
+    } else {
+      setError(response.message || 'Tester login failed.');
+    }
+  } catch (err: any) {
+    setError(
+      err.response?.data?.message ||
+        'Tester login failed. Please try again.'
+    );
+  } finally {
+    setLoading(false);
+  }
+};
 
   const switchMode = () => {
     setIsRegister((current) => !current);
@@ -142,6 +168,16 @@ const Login: React.FC<LoginProps> = ({ onLoginSuccess }) => {
               ? 'Create account'
               : 'Sign in'}
         </button>
+        {!isRegister && (
+  <button
+    type="button"
+    onClick={handleTesterLogin}
+    disabled={loading}
+    className="tester-login-button"
+  >
+    {loading ? 'Please wait...' : 'Login As Tester'}
+  </button>
+)}
 
         <p>
           {isRegister
@@ -151,6 +187,7 @@ const Login: React.FC<LoginProps> = ({ onLoginSuccess }) => {
             {isRegister ? 'Sign in' : 'Register'}
           </button>
         </p>
+        
       </form>
     </div>
   );
