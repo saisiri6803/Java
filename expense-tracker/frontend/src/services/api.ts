@@ -2,12 +2,13 @@
 import axios from 'axios';
 
 const api = axios.create({
-  // Vite uses import.meta.env instead of process.env
-  baseURL: (import.meta as any).env.VITE_APP_API_BASE_URL || '/api',
+  // Change from import.meta to standard Webpack environment mapping
+  baseURL: process.env.REACT_APP_API_BASE_URL || '/api',
   headers: {
     'Content-Type': 'application/json',
   },
 });
+
 
 
 api.interceptors.request.use(
