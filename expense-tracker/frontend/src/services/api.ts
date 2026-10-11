@@ -2,11 +2,13 @@
 import axios from 'axios';
 
 const api = axios.create({
-  baseURL: '/api',
+  // Vite uses import.meta.env instead of process.env
+  baseURL: (import.meta as any).env.VITE_APP_API_BASE_URL || '/api',
   headers: {
     'Content-Type': 'application/json',
   },
 });
+
 
 api.interceptors.request.use(
   (config) => {
